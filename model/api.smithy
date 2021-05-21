@@ -48,6 +48,11 @@ structure aws_crt_credentials {}
 @opaque
 structure aws_crt_credentials_options {}
 
+// /* Credentials providers */
+// typedef struct aws_credentials_provider aws_crt_credentials_provider;
+@pointer(description: "aws_crt_credentials_provider*")
+@opaque
+structure aws_crt_credentials_provider {}
 
 // /* Public function definitions */
 
@@ -199,5 +204,22 @@ operation aws_crt_credentials_acquire {
 // AWS_CRT_API void aws_crt_credentials_release(aws_crt_credentials *credentials);
 operation aws_crt_credentials_release {
     input: aws_crt_credentials,
+    // errors: []
+}
+
+// /* Credentials providers */
+// /* Generic credentials provider acquire/release */
+
+// AWS_CRT_API aws_crt_credentials_provider *aws_crt_credentials_provider_acquire(
+//     aws_crt_credentials_provider *credentials_provider);
+operation aws_crt_credentials_provider_acquire {
+    input: aws_crt_credentials_provider,
+    output: aws_crt_credentials_provider
+    // errors: []
+}
+
+// AWS_CRT_API void aws_crt_credentials_provider_release(aws_crt_credentials_provider *credentials_provider);
+operation aws_crt_credentials_provider_release {
+    input: aws_crt_credentials_provider,
     // errors: []
 }

@@ -2,12 +2,12 @@ namespace com.amazonaws.ffi
 
 // /* Traits */
 @trait
-structure pointer{}
-
-@trait
-structure opaque{
+structure pointer{
     description: String
 }
+
+@trait
+structure opaque{}
 
 // /* Structures */
 // /* Primitive Wrapper*/
@@ -27,25 +27,25 @@ structure BigIntegerWrapper {
     data: BigInteger
 }
 
-@pointer
-@opaque(description: "void*")
+@pointer(description: "void*")
+@opaque
 structure Void {}
 
-@pointer
-@opaque(description: "uint8_t*")
+@pointer(description: "uint8_t*")
+@opaque
 structure UInt8_T {}
 
 // Self-defined Structs (with pointers as reference)
 
 // /* Auth */
 // typedef struct aws_credentials aws_crt_credentials;
-@pointer
-@opaque(description: "aws_crt_credentials*")
+@pointer(description: "aws_crt_credentials*")
+@opaque
 structure aws_crt_credentials {}
 
 // typedef struct _aws_crt_credentials_options aws_crt_credentials_options;
-@pointer
-@opaque(description: "aws_crt_credentials_options*")
+@pointer(description: "aws_crt_credentials_options*")
+@opaque
 structure aws_crt_credentials_options {}
 
 
@@ -130,7 +130,6 @@ operation aws_crt_credentials_options_release {
 }
 
 // Input for setting aws_crt_credentials_options
-
 structure aws_crt_credentials_options_set_input {
     @required
     options: aws_crt_credentials_options,

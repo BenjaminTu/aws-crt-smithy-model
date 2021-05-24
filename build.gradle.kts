@@ -9,6 +9,8 @@ repositories {
 
 dependencies {
     implementation("software.amazon.smithy:smithy-model:1.8.0")
+    implementation(project(":smithy-crt"))
+    implementation(rootProject)
 }
 
 configure<software.amazon.smithy.gradle.SmithyExtension> {

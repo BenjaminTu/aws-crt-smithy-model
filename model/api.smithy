@@ -10,7 +10,7 @@ structure pointer{
 structure opaque{}
 
 // /* Structures */
-// /* Primitive Wrapper*/
+// /* Primitive Wrappers */
 
 structure IntegerWrapper {
     @required
@@ -29,11 +29,11 @@ structure BigIntegerWrapper {
 
 @pointer(description: "void*")
 @opaque
-structure Void {}
+structure VoidPointer {}
 
 @pointer(description: "uint8_t*")
 @opaque
-structure UInt8_T {}
+structure UInt8_TPointer {}
 
 // Self-defined Structs (with pointers as reference)
 
@@ -77,13 +77,13 @@ operation aws_crt_test_error {
 // AWS_CRT_API void *aws_crt_mem_acquire(size_t size);
 operation aws_crt_mem_acquire {
     input: IntegerWrapper,
-    output: Void
+    output: VoidPointer
     // errors: []
 }
 
 // AWS_CRT_API void aws_crt_mem_release(void *mem);
 operation aws_crt_mem_release {
-    input: Void
+    input: VoidPointer
     // errors: []
 }
 
@@ -139,7 +139,7 @@ structure aws_crt_credentials_options_set_input {
     @required
     options: aws_crt_credentials_options,
     @required
-    data: UInt8_T,
+    data: UInt8_TPointer,
     @required
     size: IntegerWrapper
 }

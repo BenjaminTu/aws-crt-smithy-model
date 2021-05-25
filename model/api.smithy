@@ -100,7 +100,6 @@ operation aws_crt_error_str {
     output: StringWrapper
     // errors: []
 }
-
 // AWS_CRT_API const char *aws_crt_error_name(int);
 operation aws_crt_error_name {
     input: IntegerWrapper,
@@ -114,14 +113,12 @@ operation aws_crt_error_debug_str {
     output: StringWrapper
     // errors: []
 }
-
 // AWS_CRT_API void aws_crt_reset_error(void);
 operation aws_crt_reset_error {
     // errors: []
 }
 
 // /* Auth */
-
 // AWS_CRT_API aws_crt_credentials_options *aws_crt_credentials_options_new(void);
 operation aws_crt_credentials_options_new {
     output: aws_crt_credentials_options

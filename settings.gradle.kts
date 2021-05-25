@@ -3,5 +3,3 @@
  */
 
 rootProject.name = "aws-crt-smithy-model"
-
-include(":smithy-crt")
